@@ -53,26 +53,24 @@ services:
       ASPNETCORE_ENVIRONMENT: Staging
     ports:
       - "80"
-    networks:
-      - internal
 
-  e2e:
-    image: cypress
-    build:
-      context: .
-      dockerfile: ./Test.Scopes.E2E/Dockerfile
-    container_name: cypress
-    depends_on:
-      web:
-        condition: service_started
-    environment:
-      - CYPRESS_baseUrl=http://localhost:80
-    command: npx cypress run
-    volumes:
-      - ./Test.Scopes.E2E/cypress:/app/cypress
-      - ./Test.Scopes.E2E/cypress.json:/app/cypress.json
-    networks:
-      - internal
+  # e2e:
+  #   image: cypress
+  #   build:
+  #     context: .
+  #     dockerfile: ./Test.Scopes.E2E/Dockerfile
+  #   container_name: cypress
+  #   depends_on:
+  #     web:
+  #       condition: service_started
+  #   environment:
+  #     - CYPRESS_baseUrl=http://localhost:80
+  #   command: npx cypress run
+  #   volumes:
+  #     - ./Test.Scopes.E2E/cypress:/app/cypress
+  #     - ./Test.Scopes.E2E/cypress.json:/app/cypress.json
+  #   networks:
+  #     - internal
 
 networks:
   internal:
