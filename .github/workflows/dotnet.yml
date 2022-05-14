@@ -37,8 +37,11 @@ jobs:
     - name: Integration Test
       run: dotnet test Test.Scopes.IntegrationTest --no-build --verbosity normal
 
-    - name: Cypress run
+    - name: Cypress Install
       uses: cypress-io/github-action@v2
+      with:
+        working-directory: ./Test.Scopes.E2E
+        runTests: false
 
     - name: E2E Test
       run: docker-compose up --abort-on-container-exit --exit-code-from e2e
