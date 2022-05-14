@@ -45,7 +45,6 @@ jobs:
       with:
         working-directory: ./Test.Scopes.E2E
         wait-on: 'http://localhost:80'
-        build: npm run build
         start: npm start
         runTests: true
 
