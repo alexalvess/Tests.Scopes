@@ -39,9 +39,6 @@ jobs:
 
     - name: Cypress run
       uses: cypress-io/github-action@v2
-      with:
-        build: npm run build
-        start: npm start
 
     - name: E2E Test
       run: docker-compose up --abort-on-container-exit --exit-code-from e2e
